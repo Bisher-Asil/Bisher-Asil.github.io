@@ -1,153 +1,155 @@
-<!DOCTYPE HTML>
-<!--
-	تم التعديل بواسطة ChatGPT – النسخة العربية
-	القالب الأصلي: Massively by HTML5 UP
--->
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-	<!-- الأساسيات -->
-	<meta charset="utf-8" />
-	<title>بشر أصيل & هالة مستت – ١٢ سبتمبر ٢٠٢٦</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta charset="utf-8">
+	<title>دعوة زفاف | بشر أصيل & هالة مستت</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- مشاركة-اجتماعية (Open Graph & Twitter) -->
-	<meta property="og:type"        content="website">
-	<meta property="og:title"       content="دعوة زفاف بشر أصيل & هالة مستت">
-	<meta property="og:description" content="يسعدنا مشاركتكم فرحتنا في غوا – للمزيد من التفاصيل وتأكيد الحضور اضغط هنا">
-	<meta property="og:image"       content="https://Bisher-Asil.github.io/images/og-cover.jpg">
-	<meta property="og:url"         content="https://Bisher-Asil.github.io">
-	<meta property="og:site_name"   content="حفل زفاف بشر & هالة">
+	<!-- ‎Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Lateef&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+	<!-- ‎Font-Awesome (لأيقونات التاريخ/المكان/الوقت) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-	<!-- ملفات التنسيق -->
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-
-	<!-- دعم الاتجاه من اليمين إلى اليسار -->
 	<style>
-		body {direction: rtl; text-align: right;}
-		/* يمكن إضافة أي تخصيصات أخرى هنا */
+		/* ——— إعدادات عامة ——— */
+		body{
+			margin:0;
+			padding:0;
+			background:#e9e9e4;           /* خلفية فاتحة */
+			font-family:'Tajawal',sans-serif;
+			direction:rtl;
+			text-align:center;
+		}
+
+		/* ——— البطاقة الرئيسية ——— */
+		.invite{
+			max-width:430px;              /* عرض البطاقة */
+			margin:40px auto;
+			background:#ffffff;
+			padding:40px 30px 60px;
+			box-shadow:0 4px 12px rgba(0,0,0,.08);
+			position:relative;
+			overflow:hidden;
+		}
+
+		/* العبارة القرآنية بالخط الانسيابي */
+		.calligraphy{
+			font-family:'Lateef',cursive;
+			font-size:40px;
+			color:#5c4b7d;               /* أرجواني هادئ */
+			margin:0 0 25px;
+			line-height:1.2;
+		}
+
+		/* أسماء العروسين */
+		.names{
+			font-family:'Lateef',cursive;
+			font-size:48px;
+			color:#5c4b7d;
+			margin:30px 0 10px;
+			letter-spacing:.5px;
+		}
+
+		/* الفقرات العامة */
+		.invite p{
+			margin:8px 0;
+			font-size:18px;
+			color:#555;
+		}
+
+		/* صف الأيقونات */
+		.icon-row{
+			display:flex;
+			justify-content:space-between;
+			margin:35px 0 25px;
+			font-size:14px;
+		}
+		.icon-box{
+			width:30%;
+		}
+		.icon-box i{
+			font-size:22px;
+			color:#5c4b7d;
+			margin-bottom:6px;
+		}
+
+		/* مربع QR كصورة أو عنصر <img> */
+		.qr{
+			width:150px;
+			height:150px;
+			margin:0 auto 20px;
+			background:url('images/qr-placeholder.png') center/contain no-repeat;
+		}
+
+		/* ملاحظات وتنبيهات */
+		.attention{
+			font-size:13px;
+			color:#814c73;
+			margin:4px 0;
+		}
+
+		/* العلامة المائية الخلفية */
+		.watermark{
+			font-family:'Lateef',cursive;
+			font-size:200px;
+			color:rgba(0,0,0,.04);
+			position:absolute;
+			bottom:20px;
+			left:50%;
+			transform:translateX(-50%);
+			user-select:none;
+			pointer-events:none;
+			line-height:1;
+		}
 	</style>
 </head>
 
-<body class="is-preload">
+<body>
+	<section class="invite">
 
-	<!-- الغلاف -->
-	<div id="wrapper" class="fade-in">
+		<!-- العبارة العلوية -->
+		<div class="calligraphy">وَجَعَلَ بَيْنَكُم مَوَدَّةً وَرَحْمَةً</div>
 
-		<!-- المقدمة -->
-		<div id="intro">
-			<h1>بشر أصيل<br/>وهالة مستت</h1>
-			<p>نتشرّف بدعوتكم إلى حفل زفافنا في غوا، الهند<br/>
-			   يوم السبت ١٢ سبتمبر ٢٠٢٦</p>
-			<ul class="actions">
-				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">المتابعة</a></li>
-			</ul>
+		<!-- نص الترحيب -->
+		<p>بكل الحب والودّ نتشرّف بدعوتكم لحضور حفل زفاف</p>
+
+		<!-- أسماء العروسين -->
+		<div class="names">بشر &nbsp;•&nbsp; هالة</div>
+
+		<p>وذلك بمشيئة الله تعالى يوم&nbsp;السبت</p>
+
+		<!-- معلومات (تاريخ - مكان - وقت) -->
+		<div class="icon-row">
+			<div class="icon-box">
+				<i class="fa-regular fa-calendar-days"></i><br>
+				١٢ سبتمبر ٢٠٢٦<br>
+				١٠ صَفَر ١٤٤٨هـ
+			</div>
+
+			<div class="icon-box">
+				<i class="fa-solid fa-location-dot"></i><br>
+				منتجع تاج إكسوتيكا<br>
+				غوا – الهند
+			</div>
+
+			<div class="icon-box">
+				<i class="fa-regular fa-clock"></i><br>
+				الاستقبال ٤:٣٠ م<br>
+				العشاء ٨:٠٠ م
+			</div>
 		</div>
 
-		<!-- الرأس -->
-		<header id="header">
-			<a href="index.html" class="logo">دعوة الزفاف</a>
-		</header>
+		<!-- ‎QR Code -->
+		<div class="qr"></div>
+		<!-- أو بدلاً من الـ div أعلاه يمكن استخدام:
+		     <img class="qr" src="qr-code.png" alt="QR Code"> -->
 
-		<!-- شريط التنقل -->
-		<nav id="nav">
-			<ul class="links">
-				<li class="active"><a href="index.html">الرئيسية</a></li>
-				<li><a href="#details">تفاصيل الحفل</a></li>
-				<li><a href="#rsvp">تأكيد الحضور (RSVP)</a></li>
-			</ul>
-			<ul class="icons">
-				<li><a href="#" class="icon brands fa-twitter"><span class="label">تويتر</span></a></li>
-				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">فيسبوك</span></a></li>
-				<li><a href="#" class="icon brands fa-instagram"><span class="label">إنستغرام</span></a></li>
-				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-			</ul>
-		</nav>
+		<!-- الملاحظات -->
+		<p class="attention">الدعوة شخصية – للدخول يرجى إبراز رمز&nbsp;QR فقط</p>
+		<p class="attention">المكرمة: زهرة &nbsp;|&nbsp; عدد المرافقين: ١</p>
 
-		<!-- المحتوى الرئيسي -->
-		<div id="main">
-
-			<!-- مقطع مميز (مثال على قسم بطل الصفحة) -->
-			<article class="post featured" id="details">
-				<header class="major">
-					<span class="date">١٢ سبتمبر ٢٠٢٦</span>
-					<h2><a href="#">تفاصيل الحفل</a></h2>
-					<p>
-						• الموقع: منتجع تاج إكسوتيكا، غوا، الهند<br/>
-						• الموعد: الساعة ٤:٣٠ مساءً (الاستقبال)، يليه العشاء والاحتفال<br/>
-						• اللباس: رسمي مريح (Semi-formal)
-					</p>
-				</header>
-				<a href="#" class="image main"><img src="images/pic01.jpg" alt="صورة الحفل" /></a>
-			</article>
-
-			<!-- نموذج RSVP مبسّط -->
-			<section class="posts" id="rsvp">
-				<article>
-					<header>
-						<h2>تأكيد حضوركم</h2>
-					</header>
-					<form method="post" action="#">
-						<div class="fields">
-							<div class="field">
-								<label for="name">الاسم الكامل</label>
-								<input type="text" name="name" id="name" required />
-							</div>
-							<div class="field">
-								<label for="email">البريد الإلكتروني</label>
-								<input type="email" name="email" id="email" required />
-							</div>
-							<div class="field">
-								<label for="guests">عدد المرافقين</label>
-								<input type="number" name="guests" id="guests" min="0" max="5" value="0" />
-							</div>
-							<div class="field">
-								<label for="message">ملاحظات إضافية</label>
-								<textarea name="message" id="message" rows="3"></textarea>
-							</div>
-						</div>
-						<ul class="actions">
-							<li><input type="submit" value="إرسال" class="primary"/></li>
-						</ul>
-					</form>
-				</article>
-			</section>
-
-		</div>
-
-		<!-- التذييل -->
-		<footer id="footer">
-			<section class="split contact">
-				<section class="alt">
-					<h3>العنوان</h3>
-					<p>منتجع تاج إكسوتيكا<br/>غوا، الهند</p>
-				</section>
-				<section>
-					<h3>هاتف</h3>
-					<p><a href="#">‎+91 0000-000-000</a></p>
-				</section>
-				<section>
-					<h3>بريد إلكتروني</h3>
-					<p><a href="#">wedding@bisher-halah.com</a></p>
-				</section>
-			</section>
-		</footer>
-
-		<!-- حقوق -->
-		<div id="copyright">
-			<ul><li>&copy; بشر & هالة ٢٠٢٦</li><li>التصميم الأصلي: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-		</div>
-
-	</div>
-
-	<!-- السكربتات -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
+		<!-- علامة مائية بالحروف الأولى -->
+		<span class="watermark">بـه</span>
+	</section>
 </body>
 </html>
