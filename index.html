@@ -22,50 +22,51 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-	<!-- Google Font for calligraphic intro line -->
+	<!-- خط المقدمة -->
 	<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 
-	<!-- دعم الاتجاه من اليمين إلى اليسار + تخصيص الألوان -->
+	<!-- دعم RTL + لوحة ألوان بنفسجية مع نص أبيض -->
 	<style>
-		/* الاتجاه */
+		/* ألوان وخلفية عامة */
 		body {
 			direction: rtl;
 			text-align: right;
-			background-color: #f6f4ff; /* very light lavender */
-			color: #4a2a6a;            /* deep purple for text */
+			margin: 0;
+			background: linear-gradient(180deg, #4c2a85 0%, #5931a6 100%);
+			color: #ffffff;
 		}
 
-		/* خط العنوان */
-		#intro h1 {
-			font-family: 'Aref Ruqaa', serif;
-			font-weight: 700;
-			color: #4a2a6a;
-		}
-
-		/* إبقاء المقدمة مرئية دائماً */
+		/* المقدمة دائماً ظاهرة */
 		#intro {
 			opacity: 1 !important;
 			transform: none !important;
 			display: block !important;
 		}
 
-		/* ألوان الأزرار والروابط */
-		a,
-		#header .logo { color: #6f42c1; }
+		/* خط العنوان */
+		#intro h1 {
+			font-family: 'Aref Ruqaa', serif;
+			font-weight: 700;
+			color: #ffffff;
+		}
 
+		/* روابط */
+		a,
+		#header .logo { color: #d8c6ff; }
+
+		/* أزرار */
 		.button,
 		.actions .button,
 		input[type="submit"].primary {
-			background-color: #6f42c1;
-			border-color: #6f42c1;
-			color: #fff !important;
+			background-color: #7b4cd6;
+			border-color: #7b4cd6;
+			color: #ffffff !important;
 		}
-
 		.button:hover,
 		.actions .button:hover,
 		input[type="submit"].primary:hover {
-			background-color: #5931a6;
-			border-color: #5931a6;
+			background-color: #9c6bff;
+			border-color: #9c6bff;
 		}
 	</style>
 </head>
