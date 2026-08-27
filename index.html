@@ -25,14 +25,48 @@
 	<!-- Google Font for calligraphic intro line -->
 	<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 
-	<!-- دعم الاتجاه من اليمين إلى اليسار -->
+	<!-- دعم الاتجاه من اليمين إلى اليسار + تخصيص الألوان -->
 	<style>
-		body {direction: rtl; text-align: right;}
-		#intro h1 {font-family: 'Aref Ruqaa', serif; font-weight: 700;}
+		/* الاتجاه */
+		body {
+			direction: rtl;
+			text-align: right;
+			background-color: #f6f4ff; /* very light lavender */
+			color: #4a2a6a;            /* deep purple for text */
+		}
 
-		/* Always show intro (override template JS/CSS hiding) */
-		#intro {opacity: 1 !important; transform: none !important; display: block !important;}
-		/* يمكن إضافة أي تخصيصات أخرى هنا */
+		/* خط العنوان */
+		#intro h1 {
+			font-family: 'Aref Ruqaa', serif;
+			font-weight: 700;
+			color: #4a2a6a;
+		}
+
+		/* إبقاء المقدمة مرئية دائماً */
+		#intro {
+			opacity: 1 !important;
+			transform: none !important;
+			display: block !important;
+		}
+
+		/* ألوان الأزرار والروابط */
+		a,
+		#header .logo { color: #6f42c1; }
+
+		.button,
+		.actions .button,
+		input[type="submit"].primary {
+			background-color: #6f42c1;
+			border-color: #6f42c1;
+			color: #fff !important;
+		}
+
+		.button:hover,
+		.actions .button:hover,
+		input[type="submit"].primary:hover {
+			background-color: #5931a6;
+			border-color: #5931a6;
+		}
 	</style>
 </head>
 
@@ -59,7 +93,7 @@
 		<!-- المحتوى الرئيسي -->
 		<div id="main">
 
-			<!-- مقطع مميز (مثال على قسم بطل الصفحة) -->
+			<!-- مقطع مميز -->
 			<article class="post featured" id="details">
 				<header class="major">
 					<span class="date">١٢ سبتمبر ٢٠٢٦</span>
@@ -73,7 +107,7 @@
 				<a href="#" class="image main"><img src="images/pic01.jpg" alt="صورة الحفل" /></a>
 			</article>
 
-			<!-- نموذج RSVP مبسّط -->
+			<!-- نموذج RSVP -->
 			<section class="posts" id="rsvp">
 				<article>
 					<header>
