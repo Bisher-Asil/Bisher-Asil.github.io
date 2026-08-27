@@ -29,6 +29,9 @@
 	<style>
 		body {direction: rtl; text-align: right;}
 		#intro h1 {font-family: 'Aref Ruqaa', serif; font-weight: 700;}
+
+		/* Always show intro (override template JS/CSS hiding) */
+		#intro {opacity: 1 !important; transform: none !important; display: block !important;}
 		/* يمكن إضافة أي تخصيصات أخرى هنا */
 	</style>
 </head>
@@ -44,7 +47,7 @@
 			<p>نتشرّف بدعوتكم إلى حفل زفافنا في غوا، الهند<br/>
 			   يوم السبت ١٢ سبتمبر ٢٠٢٦</p>
 			<ul class="actions">
-				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">المتابعة</a></li>
+				<li><a href="#details" class="button icon solid solo fa-arrow-down scrolly">المتابعة</a></li>
 			</ul>
 		</div>
 
@@ -52,21 +55,6 @@
 		<header id="header">
 			<a href="index.html" class="logo">دعوة الزفاف</a>
 		</header>
-
-		<!-- شريط التنقل -->
-		<nav id="nav">
-			<ul class="links">
-				<li class="active"><a href="index.html">الرئيسية</a></li>
-				<li><a href="#details">تفاصيل الحفل</a></li>
-				<li><a href="#rsvp">تأكيد الحضور (RSVP)</a></li>
-			</ul>
-			<ul class="icons">
-				<li><a href="#" class="icon brands fa-twitter"><span class="label">تويتر</span></a></li>
-				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">فيسبوك</span></a></li>
-				<li><a href="#" class="icon brands fa-instagram"><span class="label">إنستغرام</span></a></li>
-				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-			</ul>
-		</nav>
 
 		<!-- المحتوى الرئيسي -->
 		<div id="main">
