@@ -200,28 +200,41 @@ function buildMonthCalendar(date){
 const doors = document.getElementById('doors');
 const invitation = document.getElementById('invitation');
 const bgMusic = document.getElementById('bgMusic');
+const musicToggle = document.getElementById('musicToggle');
 let opened = false;
+let musicUnlocked = false;
+
+function setMusicState(isPlaying){
+  if (!bgMusic) return;
+  bgMusic.muted = !isPlaying;
+  if (musicToggle) {
+    musicToggle.textContent = isPlaying ? '🔊' : '🔇';
+    musicToggle.classList.toggle('is-muted', !isPlaying);
+    musicToggle.setAttribute('aria-label', isPlaying ? 'Mute music' : 'Play music');
+  }
+}
 
 function unlockMusic(){
   if (!bgMusic) return;
-  if (bgMusic.dataset.unlocked === 'true') return;
+  if (musicUnlocked) return;
 
   bgMusic.volume = 0.25;
   bgMusic.muted = false;
   bgMusic.load();
 
-  const tryPlay = () => {
-    const playPromise = bgMusic.play();
-    if (playPromise && typeof playPromise.then === 'function') {
-      playPromise.then(() => {
-        bgMusic.dataset.unlocked = 'true';
-      }).catch(() => {
-        // iOS/Android can still block playback until the user gesture completes.
-      });
-    }
-  };
-
-  tryPlay();
+  const playPromise = bgMusic.play();
+  if (playPromise && typeof playPromise.then === 'function') {
+    playPromise.then(() => {
+      musicUnlocked = true;
+      setMusicState(true);
+    }).catch(() => {
+      // Mobile browsers often require the actual tap to happen on the audio control itself.
+      setMusicState(false);
+    });
+  } else {
+    musicUnlocked = true;
+    setMusicState(true);
+  }
 }
 
 function openDoors(){
@@ -242,10 +255,20 @@ function openDoors(){
   }, 1200);
 }
 
+if (musicToggle) {
+  musicToggle.addEventListener('click', () => {
+    if (!bgMusic) return;
+    if (bgMusic.paused) {
+      unlockMusic();
+    } else {
+      bgMusic.pause();
+      setMusicState(false);
+    }
+  });
+}
+
 // Open on click or first scroll. For mobile, the music must start in the same user gesture.
 doors.addEventListener('click', openDoors, { once: true });
-doors.addEventListener('pointerdown', unlockMusic, { once: true });
-doors.addEventListener('touchstart', unlockMusic, { passive: true, once: true });
 window.addEventListener('wheel', function onFirstScroll(e){
   unlockMusic();
   openDoors();

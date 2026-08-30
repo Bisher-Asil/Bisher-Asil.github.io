@@ -95,6 +95,8 @@ body{
 .monogram{font-size:40px;letter-spacing:2px;font-weight:700;font-family:'Playfair Display', serif;direction:ltr;unicode-bidi:isolate}
 
 .open-hint{position:absolute;left:50%;bottom:8%;transform:translateX(-50%);background:transparent;border:0;color:var(--card);font-weight:600;padding:8px 12px;border-radius:8px;backdrop-filter:blur(4px);z-index:3;}
+.music-toggle{position:fixed;right:18px;bottom:18px;z-index:200;border:1px solid rgba(183,141,57,0.35);background:rgba(255,255,255,0.72);color:var(--taupe);width:46px;height:46px;border-radius:50%;font-size:22px;cursor:pointer;box-shadow:0 10px 24px rgba(59,48,41,0.12);}
+.music-toggle.is-muted{opacity:0.7}
 
 /* Main layout */
 .invitation{position:relative;z-index:10;padding:10vh 16px 8vh;max-width:var(--max-width);margin:0 auto}
