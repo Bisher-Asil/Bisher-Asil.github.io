@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>دعوة زفاف بشر أصيل و هالة مستت</title>
+
+  <!-- Open Graph / Twitter Card for rich previews (WhatsApp, Messenger, Twitter) -->
+  <meta name="description" content="تتشرف العائلتان بدعوتكم لحضور حفل زفاف بشر أصيل و هالة مستت.">
+  <meta property="og:title" content="دعوة زفاف بشر أصيل و هالة مستت" />
+  <meta property="og:description" content="تتشرف العائلتان بدعوتكم لحضور حفل زفاف بشر أصيل و هالة مستت." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/share-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="دعوة زفاف بشر أصيل و هالة مستت" />
+  <meta name="twitter:description" content="تتشرف العائلتان بدعوتكم لحضور حفل زفاف بشر أصيل و هالة مستت." />
+  <meta name="twitter:image" content="assets/share-image.jpg" />
+  <link rel="image_src" href="assets/share-image.jpg" />
+
+  <!-- Elegant fonts (English + Arabic friendly). Replace with local files if desired. -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cairo:wght@300;400;700&family=Noto+Naskh+Arabic:wght@400;500;700&family=Lateef&family=Amiri&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Doors / Closed invitation landing -->
+  <div class="doors" id="doors" aria-hidden="false">
+    <div class="door left">
+      <div class="seal-circle">
+        <div class="monogram">A &amp; B</div>
+      </div>
+    </div>
+    <div class="door right">
+      <div class="seal-circle">
+        <div class="monogram">A &amp; B</div>
+      </div>
+    </div>
+    <button class="open-hint" id="openHint" aria-hidden="false">Tap to open</button>
+  </div>
+
+  <!-- Main invitation content (revealed after doors open) -->
+  <main class="invitation" id="invitation" aria-hidden="true">
+    <section class="verse section reveal" id="verse">
+      <div class="verse-inner">
+        <p class="quran-verse" lang="ar" dir="rtl">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً إِنَّ فِي ذَلِكَ لآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ</p>
+      </div>
+    </section>
+
+    <header class="hero section" id="hero">
+      <div class="card">
+        <div class="initials" id="initials">H &amp; B</div>
+        <p class="invite-text" id="inviteText">Together with their families, they invite you to celebrate their wedding</p>
+        <h1 class="names" id="coupleNames">Alice &amp; Bilal</h1>
+        <div class="down-arrow">⬇</div>
+      </div>
+    </header>
+
+    <section class="venue section" id="venue">
+      <div class="card venue-card">
+        <h2 id="venueName">Venue Name</h2>
+        <p id="venueAddress">123 Example Street<br>City, Country</p>
+
+        <div class="venue-actions">
+          <a id="openMaps" class="btn" target="_blank" rel="noopener">فتح في خرائط جوجل</a>
+        </div>
+
+        <!-- Map embed (preferred) - Replace the iframe src with your embed URL. Example:
+             https://www.google.com/maps/embed?pb=... -->
+        <div class="map-wrap" id="mapWrap">
+          <iframe id="mapFrame" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Map"></iframe>
+          <!-- Fallback image: replace assets/map-placeholder.jpg with your own photo if you prefer a static image -->
+        </div>
+
+      </div>
+    </section>
+
+    <section class="countdown section" id="countdown">
+      <div class="card">
+        <h2 id="countTitle">Countdown</h2>
+        <div class="countdown-grid" aria-live="polite">
+          <div class="count-item"><span id="days">0</span><small id="labelDays">Days</small></div>
+          <div class="count-item"><span id="hours">0</span><small id="labelHours">Hours</small></div>
+          <div class="count-item"><span id="minutes">0</span><small id="labelMinutes">Minutes</small></div>
+          <div class="count-item"><span id="seconds">0</span><small id="labelSeconds">Seconds</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="date section" id="dateSection">
+      <div class="card date-card">
+        <div class="date-header">
+          <div class="date-left">
+            <div class="month" id="month">June</div>
+            <div class="year" id="year">2026</div>
+          </div>
+          <div class="date-right">
+            <div class="big-day" id="day">12</div>
+            <div class="weekday" id="weekday">Saturday</div>
+          </div>
+        </div>
+        <div class="hijri-date" id="hijriDate">12 رمضان 1447</div>
+        <div class="calendar" id="calendar" aria-label="Wedding calendar"></div>
+      </div>
+    </section>
+
+    <section class="schedule section" id="schedule">
+      <div class="card schedule-card">
+        <h2>البرنامج</h2>
+        <div class="time-band" aria-label="Event time range">
+          <div class="time-box">
+            <span class="time-label">بداية الحفلة</span>
+            <span class="time-value">7:00</span>
+          </div>
+          <div class="time-divider">
+            <span>—</span>
+          </div>
+          <div class="time-box">
+            <span class="time-label">نهاية الحفلة</span>
+            <span class="time-value">12:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing section" id="closing">
+      <div class="card">
+        <h2>With love</h2>
+        <p>We look forward to celebrating with you.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="card">
+        <p class="muted">This is a static invitation — no RSVP form is included.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
