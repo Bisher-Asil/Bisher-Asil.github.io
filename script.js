@@ -259,6 +259,8 @@ function openDoors(){
     // scroll a little to ensure user sees content
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, 1200);
+
+  showMusicToggle();
 }
 
 if (musicToggle) {
@@ -271,31 +273,11 @@ function showMusicToggle(){
   }
 }
 
-// Open on click or first scroll. The audio is unlocked in the same user gesture so mobile browsers allow it.
-doors.addEventListener('click', () => {
-  openDoors();
-  showMusicToggle();
-}, { once: true });
-doors.addEventListener('pointerdown', () => {
-  unlockMusic();
-  showMusicToggle();
-}, { once: true });
-doors.addEventListener('touchstart', () => {
-  unlockMusic();
-  showMusicToggle();
-}, { passive: true, once: true });
-window.addEventListener('wheel', function onFirstScroll(e){
-  unlockMusic();
-  openDoors();
-  showMusicToggle();
-  window.removeEventListener('wheel', onFirstScroll);
-});
-window.addEventListener('touchstart', function onFirstTouch(){
-  unlockMusic();
-  openDoors();
-  showMusicToggle();
-  window.removeEventListener('touchstart', onFirstTouch);
-}, {passive:true});
+// Audio must start during the same tap/touch that opens the doors.
+// This is the mobile-safe pattern: unlocked in the same user gesture.
+doors.addEventListener('pointerdown', openDoors, { once: true, passive: true });
+doors.addEventListener('touchstart', openDoors, { once: true, passive: true });
+doors.addEventListener('click', openDoors, { once: true });
 
 // Scroll reveal fallback if doors already hidden
 window.addEventListener('DOMContentLoaded', () => {
