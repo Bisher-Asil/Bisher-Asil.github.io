@@ -202,7 +202,6 @@ const invitation = document.getElementById('invitation');
 const bgMusic = document.getElementById('bgMusic');
 const musicToggle = document.getElementById('musicToggle');
 let opened = false;
-let musicUnlocked = false;
 
 function setMusicState(isPlaying){
   if (!bgMusic) return;
@@ -216,24 +215,31 @@ function setMusicState(isPlaying){
 
 function unlockMusic(){
   if (!bgMusic) return;
-  if (musicUnlocked) return;
 
   bgMusic.volume = 0.25;
   bgMusic.muted = false;
-  bgMusic.load();
 
   const playPromise = bgMusic.play();
   if (playPromise && typeof playPromise.then === 'function') {
     playPromise.then(() => {
-      musicUnlocked = true;
       setMusicState(true);
     }).catch(() => {
-      // Mobile browsers often require the actual tap to happen on the audio control itself.
+      // Mobile browsers keep audio blocked until a real user gesture occurs.
       setMusicState(false);
     });
   } else {
-    musicUnlocked = true;
     setMusicState(true);
+  }
+}
+
+function toggleMusic(){
+  if (!bgMusic) return;
+
+  if (bgMusic.paused) {
+    unlockMusic();
+  } else {
+    bgMusic.pause();
+    setMusicState(false);
   }
 }
 
@@ -256,27 +262,38 @@ function openDoors(){
 }
 
 if (musicToggle) {
-  musicToggle.addEventListener('click', () => {
-    if (!bgMusic) return;
-    if (bgMusic.paused) {
-      unlockMusic();
-    } else {
-      bgMusic.pause();
-      setMusicState(false);
-    }
-  });
+  musicToggle.addEventListener('click', toggleMusic);
 }
 
-// Open on click or first scroll. For mobile, the music must start in the same user gesture.
-doors.addEventListener('click', openDoors, { once: true });
+function showMusicToggle(){
+  if (musicToggle) {
+    musicToggle.classList.add('is-visible');
+  }
+}
+
+// Open on click or first scroll. The audio is unlocked in the same user gesture so mobile browsers allow it.
+doors.addEventListener('click', () => {
+  openDoors();
+  showMusicToggle();
+}, { once: true });
+doors.addEventListener('pointerdown', () => {
+  unlockMusic();
+  showMusicToggle();
+}, { once: true });
+doors.addEventListener('touchstart', () => {
+  unlockMusic();
+  showMusicToggle();
+}, { passive: true, once: true });
 window.addEventListener('wheel', function onFirstScroll(e){
   unlockMusic();
   openDoors();
+  showMusicToggle();
   window.removeEventListener('wheel', onFirstScroll);
 });
 window.addEventListener('touchstart', function onFirstTouch(){
   unlockMusic();
   openDoors();
+  showMusicToggle();
   window.removeEventListener('touchstart', onFirstTouch);
 }, {passive:true});
 
