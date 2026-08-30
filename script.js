@@ -199,20 +199,36 @@ function buildMonthCalendar(date){
 // Doors open behavior
 const doors = document.getElementById('doors');
 const invitation = document.getElementById('invitation');
+const bgMusic = document.getElementById('bgMusic');
 let opened = false;
+
+function unlockMusic(){
+  if (!bgMusic) return;
+  if (bgMusic.dataset.unlocked === 'true') return;
+
+  bgMusic.volume = 0.25;
+  bgMusic.muted = false;
+  bgMusic.load();
+
+  const tryPlay = () => {
+    const playPromise = bgMusic.play();
+    if (playPromise && typeof playPromise.then === 'function') {
+      playPromise.then(() => {
+        bgMusic.dataset.unlocked = 'true';
+      }).catch(() => {
+        // iOS/Android can still block playback until the user gesture completes.
+      });
+    }
+  };
+
+  tryPlay();
+}
+
 function openDoors(){
   if(opened) return;
   opened = true;
+  unlockMusic();
   doors.classList.add('open');
-
-  const bgMusic = document.getElementById('bgMusic');
-  if (bgMusic) {
-    bgMusic.volume = 0.25;
-    bgMusic.play().catch(() => {
-      // Browsers block autoplay until a user gesture; the click/touch already triggered this function,
-      // so playback should normally start. If the file is missing or blocked, fail silently.
-    });
-  }
 
   // after animation, hide doors and reveal content
   setTimeout(() => {
@@ -226,13 +242,20 @@ function openDoors(){
   }, 1200);
 }
 
-// Open on click or first scroll
+// Open on click or first scroll. For mobile, the music must start in the same user gesture.
 doors.addEventListener('click', openDoors, { once: true });
+doors.addEventListener('pointerdown', unlockMusic, { once: true });
+doors.addEventListener('touchstart', unlockMusic, { passive: true, once: true });
 window.addEventListener('wheel', function onFirstScroll(e){
+  unlockMusic();
   openDoors();
   window.removeEventListener('wheel', onFirstScroll);
 });
-window.addEventListener('touchstart', function onFirstTouch(){ openDoors(); window.removeEventListener('touchstart', onFirstTouch); }, {passive:true});
+window.addEventListener('touchstart', function onFirstTouch(){
+  unlockMusic();
+  openDoors();
+  window.removeEventListener('touchstart', onFirstTouch);
+}, {passive:true});
 
 // Scroll reveal fallback if doors already hidden
 window.addEventListener('DOMContentLoaded', () => {
