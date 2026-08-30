@@ -135,8 +135,12 @@ body{
 /* Hero */
 .hero .card{text-align:center;padding:36px}
 .initials{font-family:'Playfair Display', serif;color:var(--taupe);font-size:22px;opacity:0.9;direction:ltr;unicode-bidi:isolate}
-.names{font-family:'Amiri','Lateef','Playfair Display',serif;font-size:clamp(2.2rem, 6vw, 4.75rem);margin:6px 0;line-height:1.02;color:var(--taupe);font-weight:400;text-shadow:0 2px 0 rgba(255,255,255,0.65);letter-spacing:0.6px;filter:drop-shadow(0 2px 6px rgba(59,48,41,0.06));transform:translateZ(0);direction:rtl;unicode-bidi:isolate;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:0.2em}
-.names .connector{color:var(--accent);font-family:'Playfair Display', serif;font-size:clamp(1.5rem, 4vw, 2.4rem);margin:0 0.15em;vertical-align:middle;display:inline-block;line-height:1;transform:translateY(0);opacity:0.95}
+.names{font-family:'Amiri','Lateef','Playfair Display',serif;font-size:clamp(3rem, 8vw, 6rem);margin:6px 0;line-height:1.02;color:var(--taupe);font-weight:400;text-shadow:0 2px 0 rgba(255,255,255,0.65);letter-spacing:0.6px;filter:drop-shadow(0 2px 6px rgba(59,48,41,0.06));transform:translateZ(0);direction:rtl;unicode-bidi:isolate;display:block;text-align:center}
+.names .name-row{display:flex;justify-content:center;align-items:flex-end;gap:0.22em}
+.names .person{display:inline-flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.names .role{display:block;font-family:'Noto Naskh Arabic','Amiri','Cairo',serif;font-size:0.24em;letter-spacing:0.06em;font-weight:700;color:var(--accent);line-height:1.1;margin:0 0 0.12em 0;opacity:0.95}
+.names .name{display:block;line-height:1}
+.names .connector{color:var(--accent);font-family:'Playfair Display', serif;font-size:clamp(1.8rem, 4vw, 2.7rem);margin:0 0.12em;display:inline-block;line-height:1;transform:translateY(-0.2em);opacity:0.95;align-self:center}
 @media(min-width:720px){
   .names{font-size:64px}
 }

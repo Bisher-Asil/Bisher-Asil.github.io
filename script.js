@@ -9,15 +9,17 @@ const config = {
   dir: 'rtl', // 'ltr' or 'rtl' (will be applied to <html>)
   initials: 'H & B',
   // Separate groom/bride names to control ordering and styling
-  groomName: 'بشر أصيل',
-  brideName: 'هالة مستت',
+  groomName: 'بشر',
+  brideName: 'هالة',
+  groomRole: 'المهندس',
+  brideRole: 'الصيدلانية',
   groomTitle: 'حرم السيد محمد هاشم أصيل',
   brideTitle: 'حرم السيد عبد الرزاق مستت',
   inviteText: '',
   city: 'قاعة افراح مونلايت',
   // ISO 8601 date/time for the event (local time assumed if no timezone). Edit this.
   eventDate: '2026-09-12T18:00:00',
-  venueName: 'قاعة افراح مونلايت',
+  venueName: 'قاعة افراح موون لايت',
   venueAddress: 'حلب الجديدة خلف نقابة الصيدلة',
   // Preferred: a Google Maps embed URL (iframe src). Replace with your embed URL.
   // Example: 'https://www.google.com/maps/embed?pb=...'
@@ -50,9 +52,17 @@ function populateContent(){
   // Build couple names with groom on the right and decorative connector (❦).
   const groom = config.groomName || '';
   const bride = config.brideName || '';
+  const groomRole = config.groomRole || '';
+  const brideRole = config.brideRole || '';
   const groomTitle = config.groomTitle || '';
   const brideTitle = config.brideTitle || '';
-  $('#coupleNames').innerHTML = `${groom} <span class="connector">❦</span> ${bride}`;
+  $('#coupleNames').innerHTML = `
+    <div class="name-row">
+      <div class="person"><span class="role">${groomRole}</span><span class="name">${groom}</span></div>
+      <span class="connector">❦</span>
+      <div class="person"><span class="role">${brideRole}</span><span class="name">${bride}</span></div>
+    </div>
+  `;
   $('#coupleNames').style.display = 'block';
 
   const groomParts = groomTitle ? groomTitle.split(' ') : [];
@@ -98,7 +108,7 @@ function populateContent(){
       closingP.textContent = 'We look forward to celebrating with you.';
     }
   }
-  document.querySelector('.footer .muted').textContent = config.lang === 'ar' ? 'حضوركم يبهجنا، ونسعد بتأكيدكم للحضور خلال يومين  ' : 'This is a static invitation — no RSVP form is included.';
+  document.querySelector('.footer .muted').textContent = config.lang === 'ar' ? 'حضوركم يبهجنا، ونسعد بتأكيدكم للحضور خلال يومين لأن الدخول على الصالة بالإسم' : 'This is a static invitation — no RSVP form is included.';
 
   // Countdown label translations (small elements)
   $('#labelDays').textContent = config.lang === 'ar' ? 'أيام' : 'Days';
@@ -136,7 +146,7 @@ function populateContent(){
   const d = new Date(config.eventDate);
   const month = d.toLocaleString(config.lang === 'ar' ? 'ar-EG' : 'en-US', { month: 'long' });
   $('#month').textContent = month;
-  $('#day').textContent = d.getDate();
+  $('#day').textContent = '12/9';
   $('#year').textContent = d.getFullYear();
   $('#weekday').textContent = d.toLocaleString(config.lang === 'ar' ? 'ar-EG' : 'en-US', { weekday: 'long' });
 
@@ -194,6 +204,16 @@ function openDoors(){
   if(opened) return;
   opened = true;
   doors.classList.add('open');
+
+  const bgMusic = document.getElementById('bgMusic');
+  if (bgMusic) {
+    bgMusic.volume = 0.25;
+    bgMusic.play().catch(() => {
+      // Browsers block autoplay until a user gesture; the click/touch already triggered this function,
+      // so playback should normally start. If the file is missing or blocked, fail silently.
+    });
+  }
+
   // after animation, hide doors and reveal content
   setTimeout(() => {
     doors.classList.add('hidden');
